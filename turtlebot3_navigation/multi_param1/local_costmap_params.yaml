@@ -1,6 +1,11 @@
 local_costmap:
-  global_frame: odom
-  robot_base_frame: base_footprint
+
+  footprint: [[-0.205, -0.155], [-0.205,0.155], [0.077, 0.155], [0.077, -0.155]]
+
+  global_frame: tb3_0/odom
+  robot_base_frame: tb3_0/base_footprint
+  static_map: false
+  rolling_window: true
 
   update_frequency: 10.0
   publish_frequency: 10.0
@@ -15,11 +20,12 @@ local_costmap:
   plugins:
           # - {name: simplelayer, type: "simple_layer_namespace::SimpleLayer"}
           # - {name: gridlayer, type: "simple_layer_namespace::GridLayer"}
+      - {name: simple_layerer, type: "simple_layer_namespace::SimpleLayer"}
       - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
       - {name: inflation, type: "costmap_2d::InflationLayer"}
   obstacle_layer:
       observation_sources: laser
-      laser: {data_type: LaserScan, sensor_frame: base_scan, topic: /scan, marking: true, clearing: true, min_obstacle_height: -0.05}
+      laser: {data_type: LaserScan, sensor_frame: tb3_0/base_scan, topic: /tb3_0/scan, marking: true, clearing: true, obstacle_range: 2.0, raytrace_range: 5.0}
  
  
   inflation:
