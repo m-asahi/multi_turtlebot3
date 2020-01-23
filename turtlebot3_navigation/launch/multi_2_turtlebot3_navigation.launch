@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <!-- Arguments -->
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
@@ -17,7 +18,7 @@
   -->
 
   
-  <group ns = "$(arg second_tb3)">
+  <group ns = "$(arg third_tb3)">
   <!-- Map server -->
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
@@ -55,8 +56,8 @@
    <param name="odom_alpha2"               value="0.1"/>
    <param name="odom_alpha3"               value="0.1"/>
    <param name="odom_alpha4"               value="0.1"/>
-   <param name="odom_frame_id"             value="/tb3_1/odom"/>
-   <param name="base_frame_id"             value="/tb3_1/base_footprint"/>
+   <param name="odom_frame_id"             value="/$(arg third_tb3)/odom"/>
+   <param name="base_frame_id"             value="/$(arg third_tb3)/base_footprint"/>
 
  </node>
 
@@ -70,10 +71,10 @@
   <!-- move_base -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
-    <rosparam file="$(find turtlebot3_navigation)/multi_param2/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find turtlebot3_navigation)/multi_param2/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find turtlebot3_navigation)/multi_param2/move_base_params.yaml" command="load" />
-    <rosparam file="$(find turtlebot3_navigation)/multi_param2/dwa_local_planner_params_$(arg model).yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/multi_param/multi_param2/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/multi_param/multi_param2/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/multi_param/multi_param2/move_base_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/multi_param/multi_param2/dwa_local_planner_params_$(arg model).yaml" command="load" />
     <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
     <remap from="odom" to="$(arg odom_topic)"/>
     <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
