@@ -25,7 +25,7 @@ export TURTLEBOT3_MODEL=waffle_pi
 ```
 * Launch multiple turtlebot3 in Gazebo simulation.
 ```
-roslaunch turtlebot3_gazebo multi_turtlebot3.launch<Paste>
+roslaunch turtlebot3_gazebo multi_turtlebot3.launch
 ```
 There, there, you'll see the Gazebo window showing house model and three turtlebot3 -- tb3_0, tb3_1, tb3_2
 ![](resources/gazebo.png)
