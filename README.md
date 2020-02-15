@@ -7,8 +7,8 @@ Literally as title, this package provides launch files allowing turtlebots to na
 2. Clone all relative packages into <your_ws>/src/.
 ```
 source /opt/ros/melodic/setup.bash
-cd <your_ws>
-wget https://gist.githubusercontent.com/airuchen/db3ee4f57b0f4ce97affac5beb5065d3/raw/9f6e2d1ed86d372f4116b6ea7a4195b7b623e115/multiple_turtlebot3_env.repos
+cd catkin_ws
+wget https://gist.githubusercontent.com/airuchen/db3ee4f57b0f4ce97affac5beb5065d3/raw/a7542b5c9d640c3161673619e86eac23722c8ec9/multiple_turtlebot3_env.repos
 vcs import src/ < multiple_turtlebot3_env.repos
 catkin_make
 source devel/setup.bash
@@ -54,4 +54,6 @@ Now, the way to set goal is identical with how you set the pose estimation. Try 
 ![](resources/rviz_set_goal.png)
 
 ## Control with Behavior Tree
-TODO: multibot BT
+```
+rosrun tb_sample node _file:=/home/<user>/catkin_ws/src/BT_ros1/BT_sample/cfg/multi_bt.xml
+```
