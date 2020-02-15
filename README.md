@@ -57,3 +57,4 @@ Now, the way to set goal is identical with how you set the pose estimation. Try 
 ```
 rosrun tb_sample node _file:=/home/<user>/catkin_ws/src/BT_ros1/BT_sample/cfg/multi_bt.xml
 ```
+The behavior tree will set goal to each robot. [See the DEMO](https://www.youtube.com/watch?v=hilXQiEUrk8)
