@@ -8,7 +8,7 @@ Literally as title, this package provides launch files allowing turtlebots to na
 ```
 source /opt/ros/melodic/setup.bash
 cd catkin_ws
-wget https://gist.githubusercontent.com/airuchen/db3ee4f57b0f4ce97affac5beb5065d3/raw/a7542b5c9d640c3161673619e86eac23722c8ec9/multiple_turtlebot3_env.repos
+wget https://gist.githubusercontent.com/airuchen/5e58eb5dc54d6dc38ea5d2bedd53f69e/raw/ae3b850aca5a0577105c682eec1ab3b534161cc2/multi_omnibot.repos
 vcs import src/ < multiple_turtlebot3_env.repos
 catkin_make
 source devel/setup.bash
